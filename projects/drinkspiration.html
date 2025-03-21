@@ -1,0 +1,209 @@
+<div id="modal-1" class="project-modal">
+
+<div id="project-header" class="drinkspiration">
+</div>
+
+<div class="container-fluid">
+  <div class="wrapper">
+
+    <div class="row project-content">
+
+      <div class="col-sm-12 col-lg-3">
+        <h3>Drinkspiration</h3>
+      </div>
+
+      <div class="col-sm-12 col-lg-3">
+        <h3>2015 — 2016</h3>
+      </div>
+
+      <div class="col-sm-0 col-lg-6"></div>
+
+      <div class="project-info">
+
+        <div class="col-sm-12 col-lg-3">
+          <h4 class="sub">Branding, UI & UX</h4>
+        </div>
+
+        <div class="col-sm-0 col-lg-3"></div>
+
+        <div class="col-sm-12 col-lg-6">
+          <h4>Drinkspiration by Absolut is a cocktail app that serves up personalized drink recommendations based on your taste, ingredients, and mood. Explore a wide range of recipes, complete with generated how-to videos, and get inspired anytime with the app available on iOS and Android.<br/><br/><span class="arrow-down">↓</span></h4>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+      <div class="col-sm-6">
+      </div>
+
+      <div class="col-sm-6 skew-item-2">
+        <div>
+          <img src="projects/img/drinkspiration-1.jpg" alt="">
+          <div class="col-sm-12 col-lg-6"></div>
+          <div class="col-sm-12 col-lg-6">
+            <p>Bookmark your favorite drinks in your own drink collection, whether you made the drink yourself or tried it in a bar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 skew-item-2 offset">
+        <div>
+          <img src="projects/img/drinkspiration-2.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="full-width" class="drinkspiration-full">
+</div>
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="wrapper">
+
+    <div class="row">
+
+      <div class="col-sm-6 skew-item-2">
+        <div>
+          <img src="projects/img/drinkspiration-3.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+          <div class="col-sm-12 col-lg-6"></div>
+          <div class="col-sm-12 col-lg-6">
+            <p>Over 3 500 drink recipes based on Vodka, Gin, Rum, Brandy, Whisky, Champagne, Tequila, Triple Sec and non-alcoholic options.</p>
+          </div>
+      </div>
+
+    </div>
+
+
+    <div class="row project-content cta-last">
+
+      <div class="col-sm-0 col-md-0 col-lg-6">
+      </div>
+
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <h4>Download the app</h4>
+        <ul>
+          <li>
+            <div class="contact-area" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+              <div class="text-hover" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+                &mdash;&nbsp;&nbsp;&nbsp;<a class="link ctn-atractive" href="https://itunes.apple.com/se/app/drinkspiration-by-absolut/id320379903?mt=8" target="_blank">AppStore (&#x2197;)</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-area" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+              <div class="text-hover" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+                &mdash;&nbsp;&nbsp;&nbsp;<a class="link ctn-atractive" href="https://play.google.com/store/apps/details?id=com.absolut.drinkspiration.android" target="_blank">Google Play (&#x2197;)</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+</div>
+
+<script>
+  
+    var mouse = { x: 0, y: 0 }; //Cursor position
+    var pos = { x: 0, y: 0 }; //Cursor position
+    var ratio = 0.09; //delay follow cursor
+    var active = false;
+    var ball = document.getElementById("ball");
+
+    TweenLite.set(ball, { xPercent: -50, yPercent: -50 }); //scale from middle ball
+
+    document.addEventListener("mousemove", mouseMove);
+
+    function mouseMove(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    }
+
+    TweenLite.ticker.addEventListener("tick", updatePosition);
+
+    function updatePosition() {
+        if (!active) {
+            pos.x += (mouse.x - pos.x) * ratio;
+            pos.y += (mouse.y - pos.y) * ratio;
+
+            TweenLite.set(ball, { x: pos.x, y: pos.y });
+        }
+    }
+
+
+
+    $(".contact-area").mouseenter(function (e) {
+        TweenMax.to(this, 0.3, { scale: 1.05 }); //scale trigger element
+        TweenMax.to(ball, 0.3, { scale: 3.3 }); //scale ball
+        TweenMax.to(ball, 0.3, { borderWidth: '.5px' });
+        active = true;
+    });
+
+    $(".contact-area").mouseleave(function (e) {
+        TweenMax.to(this, 0.3, { scale: 1 });
+        TweenMax.to(ball, 0.3, { scale: 1 });
+        TweenMax.to(this.querySelector(".text-hover"), 0.3, { x: 0, y: 0 });
+        TweenMax.to(ball, 0.3, { borderWidth: '1px' });
+        active = false;
+    });
+
+    $(".contact-area").mousemove(function (e) {
+        parallaxCursor(e, this, 1); //magnetic ball = low number is more attractive
+        callParallax(e, this);
+    });
+
+    function callParallax(e, parent) {
+        parallaxIt(e, parent, parent.querySelector(".text-hover"), 85); //magnetic area = higher number is more attractive
+    }
+
+    function parallaxIt(e, parent, target, movement) {
+        let boundingRect = parent.getBoundingClientRect();
+        let relX = e.clientX - boundingRect.left;
+        let relY = e.clientY - boundingRect.top;
+
+        TweenMax.to(target, 0.3, {
+            x: (relX - boundingRect.width / 2) / boundingRect.width * movement,
+            y: (relY - boundingRect.height / 2) / boundingRect.height * movement,
+            ease: Power2.easeOut
+        });
+    }
+
+    function parallaxCursor(e, parent, movement) {
+        let rect = parent.getBoundingClientRect();
+        let relX = e.clientX - rect.left;
+        let relY = e.clientY - rect.top;
+        pos.x = rect.left + rect.width / 2 + (relX - rect.width / 2) / movement;
+        pos.y = rect.top + rect.height / 2 + (relY - rect.height / 2) / movement;
+        TweenMax.to(ball, 0.3, { x: pos.x, y: pos.y });
+    }
+
+
+
+</script>
+

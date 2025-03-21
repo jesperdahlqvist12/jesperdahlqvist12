@@ -1,0 +1,326 @@
+body,
+html {
+    background: #222;
+}
+
+html {
+    font-size: 16px;
+    background: #222;
+}
+
+a:active,
+a:focus,
+a:visited {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+}
+
+@font-face {
+    font-family: 'BasisGrotesque';
+    src: url("../fonts/basis_grotesque_regular-web.eot?") format("eot"), url("../fonts/basis_grotesque_regular-web.ttf") format("truetype"), url("../fonts/basis_grotesque_regular-web.woff") format("woff"), url("../fonts/basis_grotesque_regular-web.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BasisGrotesque';
+    src: url("../fonts/basis_grotesque_medium-web.eot?") format("eot"), url("../fonts/basis_grotesque_medium-web.ttf") format("truetype"), url("../fonts/basis_grotesque_medium-web.woff") format("woff"), url("../fonts/basis_grotesque_medium-web.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url("../fonts/neuemachina_regular.woff") format("woff"), url("../fonts/neuemachina_regular.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'BasisGrotesque';
+    font-weight: 400;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2vw;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 8vw;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.8vw;
+    line-height: 1.5;
+}
+
+.project-desc h3 {
+    padding-top: 0;
+    font-size: 3.8vw;
+    text-transform: uppercase;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+a,
+p {
+    font-family: 'BasisGrotesque';
+    font-weight: 400;
+    color: #000;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+}
+
+
+
+/** BUTTON **/
+
+
+.btn-animate-chars {
+  color: #000;
+  cursor: pointer;
+  border-radius: 999em;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  max-width: 12em;
+  padding: 1em 3em;
+  font-size: 1em;
+  line-height: 1;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+.btn-animate-chars__text {
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+/* Characters */
+.btn-animate-chars [data-button-animate-chars] {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-animate-chars [data-button-animate-chars] span {
+  display: inline-block;
+  position: relative;
+  text-shadow: 0px 1.3em #000;
+  transform: translateY(0em) rotate(0.001deg);
+  transition: transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.btn-animate-chars:hover [data-button-animate-chars] span {
+  transform: translateY(-1.3em) rotate(0.001deg);
+}
+
+/* Background */
+.btn-animate-chars__bg {
+  background-color: #fff332;
+  border-radius: 999em;
+  position: absolute;
+  inset: 0;
+  transition: inset 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  cursor: pointer;
+}
+
+.btn-animate-chars:hover .btn-animate-chars__bg {
+  inset: 0.125em;
+}
+
+/* Hamburger */
+.menu-button {
+  grid-column-gap: .1875em;
+  grid-row-gap: .1875em;
+  flex-flow: column;
+  padding: 1em;
+  font-size: 1em;
+  display: flex;
+  background: transparent;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+.menu-button-line {
+  background-color: #e7dddb;
+  width: 2em;
+  height: .1875em;
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Filter */
+
+.filter-group {
+  min-height: 100vh;
+  padding-bottom: 10em;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  grid-column-gap: .5em;
+  grid-row-gap: .5em;
+  flex-flow: wrap;
+  justify-content: flex-start;
+  padding: 1em 1em 3em;
+  display: flex;
+}
+
+.filter-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #2e2e2e;
+  border-radius: 10em;
+  padding: .65em 1.25em;
+  font-size: 1.5em;
+  transition: color 0.6s cubic-bezier(0.625, 0.05, 0, 1), background-color 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  border: 0;
+  color: #a5a5a5;
+}
+
+.filter-btn[data-filter-status="active"] {
+  background-color: #114049;
+  color: #A8EAF6;
+  border: 0;
+}
+
+/* Filter List */
+.filter-list {
+  flex-flow: wrap;
+  width: 100%;
+  display: flex;
+}
+
+.filter-list__item {
+  width: 25%;
+  padding: .75em;
+}
+
+.filter-list__item[data-filter-status="active"] {
+  transition: opacity 0.6s cubic-bezier(0.625, 0.05, 0, 1), transform 0.6s cubic-bezier(0.625, 0.05, 0, 1);
+  transform: scale(1) rotate(0.001deg);
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+.filter-list__item[data-filter-status="transition-out"] {
+  transition: opacity 0.45s cubic-bezier(0.625, 0.05, 0, 1), transform 0.45s cubic-bezier(0.625, 0.05, 0, 1);
+  transform: scale(0.9) rotate(0.001deg);
+  opacity: 0;
+  visibility: visible;
+}
+.filter-list__item[data-filter-status="not-active"] {
+  transform: scale(0.9) rotate(0.001deg);
+  opacity: 0;
+  visibility: hidden; 
+  position: absolute;
+}
+
+/* Demo Card */
+.demo-card {
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  background-color: #2e2e2e;
+  border-radius: 1.5em;
+  flex-flow: column;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+}
+
+.demo-card__bottom {
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: .25em;
+  padding-left: .5em;
+  padding-right: .5em;
+  display: flex;
+}
+
+.demo-card__h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
+  line-height: 1;
+  color: #fff;
+  padding-top: 2em;
+}
+
+.demo-card__visual {
+  background-color: #2a2a2a;
+  border-radius: .5em;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.demo-card__visual-before {
+  padding-top: 66%;
+}
+
+.demo-title {
+  padding: 10em 1em 2em;
+}
+
+.demo-title__h2 {
+  font-size: 5em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.demo-card__emoji {
+  font-size: 4em;
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .filter-list__item {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .filter-list__item {
+    width: 100%;
+  }
+
+  .demo-title__h2 {
+    font-size: 4em;
+  }
+}
+
+
+
+
+
+
+
+
+
